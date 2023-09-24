@@ -2,6 +2,7 @@
 import axios from "axios";
 import {useState, useEffect} from "react";
 import Task from "../components/TaskComponent"
+import { Link } from "react-router-dom";
 
 const HomePage = ()=> {
 
@@ -12,7 +13,7 @@ const HomePage = ()=> {
         try {
             //first set it to loading and wait for axios to get the info from the api
             setIsLoading(true);
-            const response = await axios.get("http://localhost:3000/");
+            const response = await axios.get("https://todolist-nodeapi.onrender.com");
             console.log (response.data);
             //then fill up tasks array with the data we got from axios
             setTasks(response.data);
@@ -35,8 +36,11 @@ const HomePage = ()=> {
     }, [])
 
     return (
-        //heres the actual stuff on the page
-        <div className = "grid grid-cols-2 lg:grid-cols-4 gapp-4 mt-5">
+        <div>
+        <Link to = {`/create`} class= "inline-block mt-4 shadow-md bg-green-200 text-gray-700 rounded-sm px-4 py-2 font-bold hover:bg-green-300 hover:cursor-pointer"> Create a new task!</Link>
+        {/* //heres the actual stuff on the page */}
+
+        <div className = "grid grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
             {isLoading ? (
                 "Loading"
             ) : (
@@ -58,6 +62,7 @@ const HomePage = ()=> {
                 )}
                 </>
             )}
+        </div>
         </div>
     )
 }

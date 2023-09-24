@@ -1,6 +1,8 @@
 //packages: tailwindcss, react router dom
 import {Routes, Route, Link} from "react-router-dom"
 import HomePage from './pages/Homepage'
+import CreatePage from './pages/Createpage'
+//import UpdatePage from './pages/UpdatePage'
 
 const App = () => {
   return (
@@ -9,7 +11,7 @@ const App = () => {
       {/* classname is a css class */}
       <nav className="bg-pink-200">
         <div className = "container mx-3 p-2">
-          <Link to="/"><h2 className = "text-gray-600 text-2x1 font-bold">Tasks! (o^▽^o) </h2></Link>
+          <Link to="/"><h2 className = "text-gray-600 text-2x1 font-bold">Tasks! ೕ(Ò⺫ Ó )೨ </h2></Link>
         </div>
       </nav>
 
@@ -18,7 +20,8 @@ const App = () => {
       <div className = "container mx-auto max-h-full">
         <Routes>
           <Route index element = {<HomePage/>}></Route>
-          {/* <Route path = "/create" element = {<CreatePage/>}></Route> */}
+          <Route path = "/create" element = {<CreatePage/>}></Route>
+          {/* <Route path = "/update" element= {<UpdatePage/>}></Route> */}
         </Routes>
       </div>
     </div>
